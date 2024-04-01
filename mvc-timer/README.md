@@ -4,7 +4,7 @@ Developed as a straightforward example of the MVC architecture by [@ProfJanetDav
 # Usage
 - `python3 timer.py gui` runs a graphical timer application.
 - `python3 timer.py text` runs a text-based timer in the terminal.
-- `python3 test_model.py` runs model unit tests.
+- `python3 test_model_thread.py` runs unit tests for the threaded timer model.
 
 # Files
 These files are listed in implementation order and recommended reading order.
