@@ -7,12 +7,13 @@ Developed as a straightforward example of the MVC architecture by [@ProfJanetDav
 - `python3 test_model_thread.py` runs unit tests for the threaded timer model.
 
 # Files
-These files are listed in implementation order and recommended reading order.
+These files are listed in recommended reading order.
 - `observer.py` demonstrates the use of the Observer pattern in an toy application. Provides abstract base classes for the Subject and Observer roles.
 - `thread_example.py` shows how to use the [threading](https://docs.python.org/3/library/threading.html) module for concurrency.
-- `model.py` implements a countdown timer using threads and the Observer pattern. 
-- `test_model.py` tests the timer model using the [unittest](https://docs.python.org/3/library/unittest.html) framework.
-- `controller.py` defines the controller and an abstract base class for the view.
+- `model_thread.py` implements a countdown timer using threads and the Observer pattern. 
+- `test_model_thread.py` tests the timer model using the [unittest](https://docs.python.org/3/library/unittest.html) framework.
+- `mvc.py` defines abstract base classes for the timer model and view.
+- `controller.py` defines the controller.
 - `view_text.py` implements a text-based timer.
 - `view_gui.py` implements a graphical timer using the [tkinter](https://docs.python.org/3/library/tkinter.html) package.
 - `timer.py` is the main application, which runs either the graphical or text-based timer depending on its command-line arguments.
