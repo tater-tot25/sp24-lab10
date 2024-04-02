@@ -39,7 +39,10 @@ What questions do you have? _Write them here. If you need to know, ask Prof Davi
 ### Exercise 2: Patterns and principles
 _Answer the following questions to the best of your ability._
 * Which concrete classes implement the Observer and Observable roles?
+* The ThreadTimerModel class implements the Observable roles by keeping an array of observable items and calling their respective notification
+* methods. The TimerController class implements the Observer roles and waits for a notification from the ThreadTimerModel.
 * How do the model, controller, and view classes gain references to each other? What style of dependency injection does the application use: constructor, method, or property injection?
+* The controller gets a general skeleton Model Class passed to it in the as a constructor injection. The model inherets timerView from the Model instead of getting an injection from the looks of it. The model also inherits the subject from the observer class in order to subscribe and unsubscribe from the Observer pattern notification system. The model is then passed to the different view which is assigned bassed on an argument in the timer class. This is then passed to the preffered GUI using what looks like also constructor injection, since it is assigning an entire model object, this then also acts as the observer assignment.
 
 ### Exercise 3: Extending the code
 Extend the text or GUI application to play a sound when the timer is done.
