@@ -102,32 +102,36 @@ class GuiTimerView(TimerView):
         self.seconds = time_in_seconds % 60
         self.display_time()
 
+    def set_button_state(self, button, state):
+        """Set the state of a button."""
+        button.config(state=state)
+
     def timer_done(self):
         """Indicate the timer is done. Called by the controller.""" 
-        self.start_button.config(state="normal")
-        self.stop_button.config(state="disabled")
-        self.pause_button.config(state="disabled")
-        
+        self.set_button_state(self.start_button, "normal")
+        self.set_button_state(self.stop_button, "disabled")
+        self.set_button_state(self.pause_button, "disabled")
+
     def start(self):
         """Start the timer."""
         time_in_seconds = 60*self.minutes + self.seconds
         self.controller.start(time_in_seconds)
         self.timer_is_running = True
-        self.start_button.config(state="disabled")
-        self.stop_button.config(state="normal")
-        self.pause_button.config(state="normal")
-        
+        self.set_button_state(self.start_button, "disabled")
+        self.set_button_state(self.stop_button, "normal")
+        self.set_button_state(self.pause_button, "normal")
+
     def stop(self):
         """Stop the timer."""
-        self.start_button.config(state="normal")
-        self.stop_button.config(state="disabled")
-        self.pause_button.config(text="⏸", state="disabled")
+        self.set_button_state(self.start_button, "normal")
+        self.set_button_state(self.stop_button, "disabled")
+        self.set_button_state(self.pause_button, "disabled")
         self.minutes = 0
         self.seconds = 0
         self.display_time()
         self.controller.stop()
         self.timer_is_running = False
-        
+
     def pause(self):
         """Pause the timer, or resume if already paused.."""
         if self.controller.paused():
